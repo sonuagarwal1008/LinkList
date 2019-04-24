@@ -72,11 +72,12 @@ def findLoop(myList):
         sptr=sptr.nextNode
 
 
-        try:
-            fptr = fptr.nextNode.nextNode
-        except:
-            if sptr == None:
-                print("no loop detected")
+        if  fptr!=None:
+            if fptr.nextNode!=None:
+                fptr = fptr.nextNode.nextNode
+        else:
+            print("loop not detected")
+            break
 
         if sptr==fptr:
             print("loop detected")
@@ -90,32 +91,5 @@ def findLoop(myList):
     #print(s)
 
 findLoop(myList)
-def findLoop(myList):
-    s=0
-    sptr = myList.head
-    fptr = myList.head
 
-    while True:
-
-        sptr=sptr.nextNode
-
-
-        try:
-            fptr = fptr.nextNode.nextNode
-        except:
-            if sptr == None:
-                print("no loop detected")
-
-        if sptr==fptr:
-            print("loop detected")
-            #print(sptr.data)
-            #print(fptr.data)
-            break
-
-        else:
-
-            s=s+1
-    #print(s)
-
-findLoop(myList)
 
