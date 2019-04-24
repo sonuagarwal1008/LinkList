@@ -40,16 +40,16 @@ class LinkedList:
 
 
 myList = LinkedList()
-print("Inserting")
+#print("Inserting")
 listData = [5,10,15,20,25,30,40,45,50]
 for i in range(0,len(listData),1):
-    print(myList.addNode(listData[i]))
+    myList.addNode(listData[i])
 
 
 
 
-print("Printing")
-myList.printNode()
+#print("Printing")
+#myList.printNode()
 
 
 #print(myList.head.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode.data)
@@ -57,8 +57,8 @@ myList.printNode()
 
 
 
-
-myList.head.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode=myList.head.nextNode.nextNode.nextNode.nextNode.nextNode
+print(myList.head.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode)
+#myList.head.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode=myList.head.nextNode.nextNode.nextNode.nextNode.nextNode
 
 
 print("loop detection")
@@ -66,18 +66,56 @@ def findLoop(myList):
     s=0
     sptr = myList.head
     fptr = myList.head
+
     while True:
+
         sptr=sptr.nextNode
-        fptr=fptr.nextNode.nextNode
+
+
+        try:
+            fptr = fptr.nextNode.nextNode
+        except:
+            if sptr == None:
+                print("no loop detected")
+
         if sptr==fptr:
             print("loop detected")
-            print(sptr.data)
-            print(fptr.data)
+            #print(sptr.data)
+            #print(fptr.data)
             break
 
         else:
 
             s=s+1
-    print(s)
+    #print(s)
 
 findLoop(myList)
+def findLoop(myList):
+    s=0
+    sptr = myList.head
+    fptr = myList.head
+
+    while True:
+
+        sptr=sptr.nextNode
+
+
+        try:
+            fptr = fptr.nextNode.nextNode
+        except:
+            if sptr == None:
+                print("no loop detected")
+
+        if sptr==fptr:
+            print("loop detected")
+            #print(sptr.data)
+            #print(fptr.data)
+            break
+
+        else:
+
+            s=s+1
+    #print(s)
+
+findLoop(myList)
+
